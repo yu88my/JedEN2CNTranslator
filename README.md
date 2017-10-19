@@ -1,12 +1,12 @@
 # JedEN2CNTranslator
-运行在mac/linux上，英文 -> 中文 翻译工具，拷贝单词后，自动翻译
+运行在mac/Ubuntu上，英文 -> 中文 翻译工具，拷贝单词后，自动翻译
 
 一、预先条件
 
 1、Ubuntu:
-先安装xclip
+先安装下面工具
 sudo apt-get install xclip
-
+sudo apt-get install sox libsox-fmt-all
 
 二、使用方法
 
@@ -21,4 +21,3 @@ sudo apt-get install xclip
    Ubuntu 上 CTRL+C（拷贝） 或者 鼠标选中英文单词，自动翻译英文单词
 
 Enjoy!
-

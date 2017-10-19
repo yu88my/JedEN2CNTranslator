@@ -6,7 +6,9 @@ import datetime
 import json
 import os
 import re
+import requests
 import sys
+import tempfile
 import time
 import urllib
 import urllib2
@@ -51,6 +53,20 @@ def get_word():
     return filter(word)
 
 
+def download(file, url):
+    try:
+        # convert https -> http for fixing Crash
+        url = url.replace("https://", "http://")
+        # print ("url: " + url)
+        r = requests.get(url)
+        with open(file, 'wb') as f:
+            f.write(r.content)
+        return True
+    except IOError, msg:
+        print msg
+    return False
+
+
 def notify(word, mean, pos):
     cmd = None
     if (sys.platform == 'darwin'):
@@ -65,10 +81,19 @@ def notify(word, mean, pos):
         commands.getstatusoutput(cmd)
 
 
-def say(word):
+def say(word, url):
+    print('say: ' + word + ", url: " + url)
     if (sys.platform == 'darwin'):
-        print('say: ' + word)
         commands.getstatusoutput('say ' + word)
+        return
+    if is_empty_str(url):
+        return
+    if (sys.platform == 'linux2'):
+        audio_file = tempfile.mktemp() + ".mp3"
+        if download(audio_file, url):
+            cmd = 'play %s' % (audio_file)
+            print ("say cmd: " + cmd)
+            commands.getstatusoutput(cmd)
 
 
 def record(word, mean, pos):
@@ -107,10 +132,12 @@ def get_mean(word):
             return
         mean = j['data']['definitions']['cn'][0]['defn']
         pos = j['data']['definitions']['cn'][0]['pos']
+        audio_url = j['data']['audio_addresses']['us'][0]
         print("mean: " + mean)
         print("pos: " + pos)
+        print("audiourl: " + audio_url)
         notify(word, mean, pos)
-        say(word)
+        say(word, audio_url)
         record(word, mean, pos)
     except IOError, msg:
         print msg
