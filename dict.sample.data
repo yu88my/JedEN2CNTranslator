@@ -1,0 +1,46 @@
+// 20171015185640
+// https://www.shanbay.com/api/v1/bdc/search/?version=2&word=consequently
+
+{
+  "msg": "SUCCESS",
+  "status_code": 0,
+  "data": {
+    "pronunciations": {
+      "uk": "'kɒnsɪkwəntli",
+      "us": "'kɑːnsəkwentli"
+    },
+    "audio_addresses": {
+      "uk": [
+        "https://media-audio1.baydn.com/uk%2Fc%2Fco%2Fconsequently.mp3",
+        "http://media-audio1.qiniu.baydn.com/uk/c/co/consequently.mp3"
+      ],
+      "us": [
+        "https://media-audio1.baydn.com/us%2Fc%2Fco%2Fconsequently.mp3",
+        "http://media-audio1.qiniu.baydn.com/us/c/co/consequently.mp3"
+      ]
+    },
+    "url": "https://www.shanbay.com/bdc/mobile/preview/word?word=consequently",
+    "audio_name": "consequently",
+    "learning_id": 48754258792,
+    "content": "consequently",
+    "target_retention": 5,
+    "num_sense": 1,
+    "definitions": {
+      "en": [
+        {
+          "pos": "adverb",
+          "defn": "therefore or as a result"
+        }
+      ],
+      "cn": [
+        {
+          "pos": "adv.",
+          "defn": "所以, 因此"
+        }
+      ]
+    },
+    "sense_id": 0,
+    "id": 1803,
+    "retention": 1
+  }
+}
