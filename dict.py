@@ -6,7 +6,7 @@ import datetime
 import json
 import os
 import re
-import requests
+
 import sys
 import tempfile
 import time
@@ -14,8 +14,10 @@ import urllib
 import urllib2
 from contextlib import nested
 
-BLACK_LIST = ("http", "https")
+if sys.platform != 'darwin':
+    import requests
 
+BLACK_LIST = ("http", "https")
 
 def get_clipboard_data():
     if (sys.platform == 'darwin'):
