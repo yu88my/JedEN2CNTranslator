@@ -52,10 +52,17 @@ def get_word():
 
 
 def notify(word, mean, pos):
-    cmd = 'osascript -e \'display notification "%s  %s" with title "%s"\'' % (
-        pos, mean, word)
-    print("cmd: " + cmd)
-    commands.getstatusoutput(cmd)
+    cmd = None
+    if (sys.platform == 'darwin'):
+        cmd = 'osascript -e \'display notification "%s  %s" with title "%s"\'' % (
+            pos, mean, word)
+    elif (sys.platform == 'linux2'):
+        cmd = 'notify-send --urgency=critical "%s"  "%s %s"' % (
+            word, pos, mean)
+
+    if cmd != None:
+        print("cmd: " + cmd)
+        commands.getstatusoutput(cmd)
 
 
 def say(word):
