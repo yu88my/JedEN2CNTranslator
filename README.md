@@ -1,7 +1,13 @@
 # JedEN2CNTranslator
 运行在mac/linux上，英文 -> 中文 翻译工具，拷贝单词后，自动翻译
 
-使用方法
+一、预先条件
+1、Ubuntu:
+先安装xclip
+sudo apt-get install xclip
+
+
+二、使用方法
 
 1、打开终端
 
@@ -10,7 +16,8 @@
 
 3、单词的会记录在 用户根目录的 learn_word 文件夹下
 
-4、COMMAND+C/CTRL+C，拷贝一段内容后，自动翻译开始的英文单词
+4、Mac 上 COMMAND+C拷贝英文单词，自动翻译英文单词
+   Ubuntu 上 CTRL+C（拷贝） 或者 鼠标选中英文单词，自动翻译英文单词
 
 Enjoy!
 
